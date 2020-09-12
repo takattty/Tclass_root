@@ -1,7 +1,7 @@
 [submodule "frontend"]
 	path = frontend
-	url = ./frontend
+	url = https://github.com/takattty/Tclass_frontend
 
 [submodule "backend"]
   path = backend
-  url = ./backend
+  url = https://github.com/takattty/Tclass_backend
