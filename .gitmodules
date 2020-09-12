@@ -1,3 +1,7 @@
 [submodule "frontend"]
 	path = frontend
-	url = ./front_cp
+	url = ./frontend
+
+[submodule "backend"]
+  path = backend
+  url = ./backend
