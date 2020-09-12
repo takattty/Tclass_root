@@ -1,0 +1,52 @@
+version: "3"
+
+services:
+  database:
+    image: mysql:8.0
+    container_name: tclass_mysql
+    restart: always
+    environment:
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      DB_HOST: $DB_HOST
+      TZ: 'Asia/Tokyo'
+    ports:
+      - "3306:3306"
+    volumes:
+      - /tmp/tclass_mysql:/var/lib/mysql
+    # networks:
+    #   - api_db
+
+  backend:
+    container_name: backend
+    build: 
+      context: ./backend
+    depends_on:
+      - database
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/backend
+    tty: true
+
+  frontend:
+    container_name: frontend
+    build: 
+      context: ./frontend
+    ports: 
+      - "8080:8080"
+    volumes: 
+      - ./frontend:/frontend
+    depends_on: 
+      - backend
+    tty: true
+
+
+volumes:
+  mysql_data:
+    driver: local
+
+# networks:
+#   api_db:
+#     driver: bridge
