@@ -4,8 +4,8 @@ services:
   database:
     image: mysql:8.0
     container_name: tclass_mysql
-    restart: always
     environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: $MYSQL_ALLOW_EMPTY_PASSWORD
       MYSQL_PASSWORD: $MYSQL_PASSWORD
       MYSQL_USER: $MYSQL_USER
       MYSQL_DATABASE: $MYSQL_DATABASE
