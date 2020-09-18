@@ -40,10 +40,8 @@ services:
       - "8080:8080"
     volumes: 
       - ./frontend:/frontend
-      - /frontend/node_modules
     depends_on: 
       - backend
-    command: yarn install
     tty: true
 
 
