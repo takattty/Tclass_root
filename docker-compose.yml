@@ -42,6 +42,7 @@ services:
       - ./frontend:/frontend
     depends_on: 
       - backend
+    command: yarn install
     tty: true
 
 
